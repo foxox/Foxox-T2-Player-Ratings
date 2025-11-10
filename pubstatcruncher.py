@@ -1,8 +1,14 @@
-# from yaml import safe_load, dump
+# This script is an exploration into processing PUB/PUG match results into player rankings.
+# Once I hack together something that seems useful, I may try to tidy this up.
+
+# So far, "single team point whore" glicko ratings are the most useful result. This compares players only to their teammates, so when one team dominates another, the ratings are still fair. However, this still suffers from the problem that certain roles tend to score more than others: for example, a top capper is probably going to have a greater score than a top farmer, even though the farmer is critical to the team's success.
+
+# The next thing I would like to compute is a historical conditional probability of winning a match given that a certain player is on the team.
+
+
 import yaml
 from operator import itemgetter
 import glicko2
-# from itertools import pairwise
 from more_itertools import pairwise
 
 # load file
@@ -138,8 +144,12 @@ for player,roles in players_to_roles.items():
 print(first_roles_to_players)
 print(any_roles_to_players)
 
-
 # quit()
+
+
+
+player_to_win_count = dict()
+player_to_match_count = dict()
 
 
 # loop over all matches
@@ -153,9 +163,9 @@ for match in file_contents:
   merged_match_player_results = list()
   for team in results:
     print('team:', team)
-    # if results[team]['score'] > winning_team_score:
-    #   winning_team_score = results[team]['score']
-    #   winning_team_name = team
+    if results[team]['score'] > winning_team_score:
+      winning_team_score = results[team]['score']
+      winning_team_name = team
     # print('input unsorted')
     # for player in results[team]['players']:
     #   print('player:', player)
@@ -204,6 +214,20 @@ for match in file_contents:
       better_player_glicko = stpwglickos[better_player[0]]
       stpwglickos[worse_player[0]].update_player([better_player_glicko.rating], [better_player_glicko.rd], [lose])
 
+  for team in results:
+    for player in results[team]['players']:
+      player_split = player.split(", ")
+      playername = player_split[0]
+      # player_tuple = (player_split[0], int(player_split[1]))
+      # 0 is name, 1 is score
+
+      if not playername in player_to_match_count:
+        player_to_match_count[playername] = 0
+      if not playername in player_to_win_count:
+        player_to_win_count[playername] = 0
+      player_to_match_count[playername]+=1
+      if team == winning_team_name:
+        player_to_win_count[playername]+=1
 
   # for player in merged_match_player_results:
   #   print('inplayer:', player)
@@ -282,3 +306,16 @@ for role, players in first_roles_to_players.items():
   # print('unsorted:',role,players)
   players.sort(key=lambda p: stpwglickos[p].rating if p in stpwglickos else 1400, reverse=True)
   print('sorted:',role,players)
+
+# Print conditional probabilities
+player_to_win_rate = dict()
+for matchkvp in player_to_match_count.items():
+  # Only use data with at least 10 samples (matches)
+  if matchkvp[1] < 10:
+    continue
+  player_to_win_rate[matchkvp[0]] = player_to_win_count[matchkvp[0]] / matchkvp[1]
+player_to_win_rate_sorted = list(player_to_win_rate.items())
+player_to_win_rate_sorted.sort(key=lambda p: p[1], reverse=True)
+print(player_to_win_rate_sorted)
+# print(player_to_match_count)
+# print(player_to_win_count)
