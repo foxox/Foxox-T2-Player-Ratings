@@ -152,6 +152,8 @@ player_to_win_count = dict()
 player_to_match_count = dict()
 duo_to_win_count = dict()
 duo_to_match_count = dict()
+trio_to_win_count = dict()
+trio_to_match_count = dict()
 
 
 # loop over all matches
@@ -247,6 +249,21 @@ for match in file_contents:
       duo_to_match_count[player_name_duo]+=1
       if team == winning_team_name:
         duo_to_win_count[player_name_duo]+=1
+
+    # TRIOS
+    for trio in distinct_combinations(results[team]['players'], 3):
+      trio0split = trio[0].split(", ")
+      trio1split = trio[1].split(", ")
+      trio2split = trio[2].split(", ")
+      player_name_trio=(trio0split[0],trio1split[0],trio2split[0])
+      # print('trio ',player_name_trio,' appeared in match ',match)
+      if not player_name_trio in trio_to_win_count:
+        trio_to_win_count[player_name_trio] = 0
+      if not player_name_trio in trio_to_match_count:
+        trio_to_match_count[player_name_trio] = 0
+      trio_to_match_count[player_name_trio]+=1
+      if team == winning_team_name:
+        trio_to_win_count[player_name_trio]+=1
 
   # for player in merged_match_player_results:
   #   print('inplayer:', player)
@@ -350,3 +367,17 @@ duo_to_win_rate_sorted.sort(key=lambda p: p[1], reverse=True)
 print('Best duo win rates:\n','\n'.join([str(x) for x in duo_to_win_rate_sorted]))
 # print(duo_to_match_count)
 # print(duo_to_win_count)
+
+
+
+trio_to_win_rate = dict()
+for matchkvp in trio_to_match_count.items():
+  # Only use data with at least 10 samples (matches)
+  if matchkvp[1] < 9:
+    continue
+  trio_to_win_rate[matchkvp[0]] = trio_to_win_count[matchkvp[0]] / matchkvp[1]
+trio_to_win_rate_sorted = list(trio_to_win_rate.items())
+trio_to_win_rate_sorted.sort(key=lambda p: p[1], reverse=True)
+print('Best trio win rates:\n','\n'.join([str(x) for x in trio_to_win_rate_sorted]))
+# print(trio_to_match_count)
+# print(trio_to_win_count)
