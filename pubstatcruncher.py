@@ -11,6 +11,8 @@ from operator import itemgetter
 import glicko2
 from more_itertools import pairwise, distinct_combinations
 
+print()
+
 # load file
 with open('pubresults.yaml', 'r') as file:
   file_contents = yaml.full_load(file)
@@ -141,12 +143,6 @@ for player,roles in players_to_roles.items():
       any_roles_to_players[role] = list()
     any_roles_to_players[role].append(player)
 
-print(first_roles_to_players)
-print(any_roles_to_players)
-
-# quit()
-
-
 
 player_to_win_count = dict()
 player_to_match_count = dict()
@@ -158,15 +154,15 @@ trio_to_match_count = dict()
 
 # loop over all matches
 for match in file_contents:
-  print()
-  print(match['date'], match['mission'])
+  # print()
+  # print(match['date'], match['mission'])
   winning_team_score = 0
   winning_team_name = None
   results = match['results']
   # match
   merged_match_player_results = list()
   for team in results:
-    print('team:', team)
+    # print('team:', team)
     if results[team]['score'] > winning_team_score:
       winning_team_score = results[team]['score']
       winning_team_name = team
@@ -320,64 +316,59 @@ for match in file_contents:
       tpglickos[winning_player_tuple[0]].update_player([tpglickos[losing_player_tuple[0]].rating],[tpglickos[losing_player_tuple[0]].rd],[win])
     
   
-# Sort by glicko ratings and print them out
-pwglickolist = list(pwglickos.items())
-pwglickolist.sort(key=lambda rating: rating[1].rating, reverse=True)
-print('Point Whore Ratings, sorted:\n', [(x[0], str(round(x[1].rating))) for x in pwglickolist])
+# # Sort by glicko ratings and print them out
+# pwglickolist = list(pwglickos.items())
+# pwglickolist.sort(key=lambda rating: rating[1].rating, reverse=True)
+# print('Point Whore Ratings, sorted:\n', [(x[0], str(round(x[1].rating))) for x in pwglickolist])
 
-# Sort by glicko ratings and print them out
-stpwglickolist = list(stpwglickos.items())
-stpwglickolist.sort(key=lambda rating: rating[1].rating, reverse=True)
-# print('Single Team Point Whore Ratings, sorted:\n', [(x[0], str(round(x[1].rating))) for x in stpwglickolist])
-print('\nSingle Team Point Whore Ratings',"\n".join([ str((x[0], str(round(x[1].rating)), str(round(x[1].rd)))) for x in stpwglickolist]))
+# # Sort by glicko ratings and print them out
+# stpwglickolist = list(stpwglickos.items())
+# stpwglickolist.sort(key=lambda rating: rating[1].rating, reverse=True)
+# # print('Single Team Point Whore Ratings, sorted:\n', [(x[0], str(round(x[1].rating))) for x in stpwglickolist])
+# print('\nSingle Team Point Whore Ratings',"\n".join([ str((x[0], str(round(x[1].rating)), str(round(x[1].rd)))) for x in stpwglickolist]))
 
-# Sort by glicko ratings and print them out
-tpglickolist = list(tpglickos.items())
-tpglickolist.sort(key=lambda rating: rating[1].rating, reverse=True)
-print('\nTeam Player Ratings, sorted:')
-print("\n".join([ str((x[0], str(round(x[1].rating)), str(round(x[1].rd)))) for x in tpglickolist]))
+# # Sort by glicko ratings and print them out
+# tpglickolist = list(tpglickos.items())
+# tpglickolist.sort(key=lambda rating: rating[1].rating, reverse=True)
+# print('\nTeam Player Ratings, sorted:')
+# print("\n".join([ str((x[0], str(round(x[1].rating)), str(round(x[1].rd)))) for x in tpglickolist]))
 
-print('\nPer role single team point whore ratings:\n')
-for role, players in first_roles_to_players.items():
-  # print('unsorted:',role,players)
-  players.sort(key=lambda p: stpwglickos[p].rating if p in stpwglickos else 1400, reverse=True)
-  print('sorted:',role,players)
+# print('\nPer role single team point whore ratings:\n')
+# for role, players in first_roles_to_players.items():
+#   # print('unsorted:',role,players)
+#   players.sort(key=lambda p: stpwglickos[p].rating if p in stpwglickos else 1400, reverse=True)
+#   print('sorted:',role,players)
 
 # Print conditional probabilities
 player_to_win_rate = dict()
 for matchkvp in player_to_match_count.items():
-  # Only use data with at least 10 samples (matches)
   if matchkvp[1] < 30:
     continue
   player_to_win_rate[matchkvp[0]] = player_to_win_count[matchkvp[0]] / matchkvp[1]
 player_to_win_rate_sorted = list(player_to_win_rate.items())
 player_to_win_rate_sorted.sort(key=lambda p: p[1], reverse=True)
-print('Best player win rates:\n','\n'.join([str(x) for x in player_to_win_rate_sorted]))
-# print(player_to_match_count)
-# print(player_to_win_count)
+print('Best (and worst) player win rates:\n','\n'.join([str(x) for x in player_to_win_rate_sorted]))
+
+print()
 
 duo_to_win_rate = dict()
 for matchkvp in duo_to_match_count.items():
-  # Only use data with at least 10 samples (matches)
   if matchkvp[1] < 17:
     continue
   duo_to_win_rate[matchkvp[0]] = duo_to_win_count[matchkvp[0]] / matchkvp[1]
 duo_to_win_rate_sorted = list(duo_to_win_rate.items())
 duo_to_win_rate_sorted.sort(key=lambda p: p[1], reverse=True)
-print('Best duo win rates:\n','\n'.join([str(x) for x in duo_to_win_rate_sorted]))
-# print(duo_to_match_count)
-# print(duo_to_win_count)
+print('Best (and worst) duo win rates:\n','\n'.join([str(x) for x in duo_to_win_rate_sorted]))
 
-
+print()
 
 trio_to_win_rate = dict()
 for matchkvp in trio_to_match_count.items():
-  # Only use data with at least 10 samples (matches)
   if matchkvp[1] < 9:
     continue
   trio_to_win_rate[matchkvp[0]] = trio_to_win_count[matchkvp[0]] / matchkvp[1]
 trio_to_win_rate_sorted = list(trio_to_win_rate.items())
 trio_to_win_rate_sorted.sort(key=lambda p: p[1], reverse=True)
-print('Best trio win rates:\n','\n'.join([str(x) for x in trio_to_win_rate_sorted]))
-# print(trio_to_match_count)
-# print(trio_to_win_count)
+print('Best (and worst) trio win rates:\n','\n'.join([str(x) for x in trio_to_win_rate_sorted]))
+
+print()
