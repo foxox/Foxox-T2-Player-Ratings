@@ -347,19 +347,19 @@ for role, players in first_roles_to_players.items():
 player_to_win_rate = dict()
 for matchkvp in player_to_match_count.items():
   # Only use data with at least 10 samples (matches)
-  if matchkvp[1] < 10:
+  if matchkvp[1] < 30:
     continue
   player_to_win_rate[matchkvp[0]] = player_to_win_count[matchkvp[0]] / matchkvp[1]
 player_to_win_rate_sorted = list(player_to_win_rate.items())
 player_to_win_rate_sorted.sort(key=lambda p: p[1], reverse=True)
-print('Best player win rates:',player_to_win_rate_sorted)
+print('Best player win rates:\n','\n'.join([str(x) for x in player_to_win_rate_sorted]))
 # print(player_to_match_count)
 # print(player_to_win_count)
 
 duo_to_win_rate = dict()
 for matchkvp in duo_to_match_count.items():
   # Only use data with at least 10 samples (matches)
-  if matchkvp[1] < 13:
+  if matchkvp[1] < 17:
     continue
   duo_to_win_rate[matchkvp[0]] = duo_to_win_count[matchkvp[0]] / matchkvp[1]
 duo_to_win_rate_sorted = list(duo_to_win_rate.items())
