@@ -9,7 +9,7 @@
 import yaml
 from operator import itemgetter
 import glicko2
-from more_itertools import pairwise
+from more_itertools import pairwise, distinct_combinations
 
 # load file
 with open('pubresults.yaml', 'r') as file:
@@ -150,6 +150,8 @@ print(any_roles_to_players)
 
 player_to_win_count = dict()
 player_to_match_count = dict()
+duo_to_win_count = dict()
+duo_to_match_count = dict()
 
 
 # loop over all matches
@@ -214,7 +216,10 @@ for match in file_contents:
       better_player_glicko = stpwglickos[better_player[0]]
       stpwglickos[worse_player[0]].update_player([better_player_glicko.rating], [better_player_glicko.rd], [lose])
 
+  # WIN RATE STATS GATHERING. SINGLES, DUOS, TRIOS, ETC.
   for team in results:
+    
+    # SINGLES
     for player in results[team]['players']:
       player_split = player.split(", ")
       playername = player_split[0]
@@ -228,6 +233,20 @@ for match in file_contents:
       player_to_match_count[playername]+=1
       if team == winning_team_name:
         player_to_win_count[playername]+=1
+    
+    # DUOS
+    for duo in distinct_combinations(results[team]['players'], 2):
+      duo0split = duo[0].split(", ")
+      duo1split = duo[1].split(", ")
+      player_name_duo=(duo0split[0],duo1split[0])
+      # print('Duo ',player_name_duo,' appeared in match ',match)
+      if not player_name_duo in duo_to_win_count:
+        duo_to_win_count[player_name_duo] = 0
+      if not player_name_duo in duo_to_match_count:
+        duo_to_match_count[player_name_duo] = 0
+      duo_to_match_count[player_name_duo]+=1
+      if team == winning_team_name:
+        duo_to_win_count[player_name_duo]+=1
 
   # for player in merged_match_player_results:
   #   print('inplayer:', player)
@@ -316,6 +335,18 @@ for matchkvp in player_to_match_count.items():
   player_to_win_rate[matchkvp[0]] = player_to_win_count[matchkvp[0]] / matchkvp[1]
 player_to_win_rate_sorted = list(player_to_win_rate.items())
 player_to_win_rate_sorted.sort(key=lambda p: p[1], reverse=True)
-print(player_to_win_rate_sorted)
+print('Best player win rates:',player_to_win_rate_sorted)
 # print(player_to_match_count)
 # print(player_to_win_count)
+
+duo_to_win_rate = dict()
+for matchkvp in duo_to_match_count.items():
+  # Only use data with at least 10 samples (matches)
+  if matchkvp[1] < 13:
+    continue
+  duo_to_win_rate[matchkvp[0]] = duo_to_win_count[matchkvp[0]] / matchkvp[1]
+duo_to_win_rate_sorted = list(duo_to_win_rate.items())
+duo_to_win_rate_sorted.sort(key=lambda p: p[1], reverse=True)
+print('Best duo win rates:\n','\n'.join([str(x) for x in duo_to_win_rate_sorted]))
+# print(duo_to_match_count)
+# print(duo_to_win_count)
