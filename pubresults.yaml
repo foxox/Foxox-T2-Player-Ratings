@@ -1729,26 +1729,597 @@
 
 
 
-# - date: 2025-09
+- date: 2025-02-15
+  mission: dmp moondance ctf
+  results:
+    storm:
+      score: 417
+      players:
+        - hexy, 609
+        - sliderzero, 474
+        - theaftermath, 367
+        - sajent, 312
+        - devil, 281
+        - ipkiss, 257
+        - redeye, 249
+        - homerclees, 246
+        - irvin, 240
+        - veryscary, 235
+        - miss, 210
+        - systeme, 185
+        - dirkdiggler, 178
+        - tetchy, 171
+        - andycap, 158
+        - sweety, 157
+        - forgotpassword, 121
+        - 7thbishop, 121
+        - uhohstinky, 95
+        - piata, 79
+        - sevenup, 63
+        - elliebackwards, 37
+    inferno:
+      score: 827
+      players:
+        - haggis, 458
+        - m80, 440
+        - slush, 388
+        - sake, 384
+        - sterio, 372
+        - coldcheeks, 331
+        - danno, 309
+        - cooter, 260
+        - taco, 255
+        - clapcheeks, 222
+        - jx, 215
+        - raynian, 210
+        - thaen, 192
+        - gunther, 187
+        - domestic, 162
+        - carpenter, 154
+        - lolcaps, 149
+        - warchilde, 144
+        - sweetcheeks, 118
+        - oldfart, 104
+        - lsecannon28, 98
+        - tomz, 25
+
+
+- date: 2025-02-15
+  mission: twl slapdash ctf
+  results:
+    storm:
+      score: 419
+      players:
+        - haggis, 647
+        - theaftermath, 445
+        - veryscary, 410
+        - hexy, 307
+        - redeye, 265
+        - sake, 265
+        - forgotpassword, 263
+        - sajent, 256
+        - homerclees, 220
+        - miss, 175
+        - legelos, 170
+        - slush, 169
+        - sweetcheeks, 161
+        - pete, 157
+        - domestic, 131
+        - warchilde, 111
+        - ipkiss, 103
+        - mp40, 103
+        - snowman, 86
+        - elliebackwards, 63
+        - gunther, 47
+        - oldfart, 11
+    inferno:
+      score: 118
+      players:
+        - sliderzero, 483
+        - m80, 421
+        - devil, 338
+        - nutty, 285
+        - systeme, 271
+        - thaen, 265
+        - jx, 260
+        - irvin, 252
+        - sterio, 240
+        - lolcaps, 215
+        - tetchy, 199
+        - danno, 194
+        - raynian, 191
+        - piata, 173
+        - cooter, 151
+        - carpenter, 146
+        - lsecannon28, 142
+        - taco, 70
+        - dirkdiggler, 60
+        - sevenup, 58
+        - clapcheeks, 46
+        - earth, 30
+
+
+- date: 2025-02-15
+  mission: twl katabatic ctf
+  results:
+    storm:
+      score: 120
+      players:
+        - theaftermath, 356
+        - jx, 344
+        - m80, 301
+        - devil, 292
+        - thaen, 277
+        - danno, 275
+        - warchilde, 254
+        - cooter, 249
+        - clapcheeks, 237
+        - tetchy, 228
+        - taco, 197
+        - sterio, 188
+        - mp40, 181
+        - lolcaps, 181
+        - dirkdiggler, 156
+        - homerclees, 145
+        - carpenter, 128
+        - legelos, 111
+        - raynian, 84
+        - sweetcheeks, 81
+        - sevenup, 25
+        - oldfart, 15
+    inferno:
+      score: 523
+      players:
+        - haggis, 500
+        - sake, 379
+        - nutty, 362
+        - forgotpassword, 343
+        - pete, 341
+        - hexy, 336
+        - sliderzero, 309
+        - slush, 264
+        - miss, 252
+        - redeye, 249
+        - sajent, 226
+        - veryscary, 203
+        - lsecannon28, 175
+        - irvin, 175
+        - piata, 145
+        - yuanz, 143
+        - ipkiss, 92
+        - domestic, 91
+        - earth, 85
+        - gunther, 73
+        - elliebackwards, 72
+        - systeme, 69
+
+
+- date: 2025-02-15
+  mission: rollercoaster ctf
+  results:
+    storm:
+      score: 634
+      players:
+        - hexy, 499
+        - danno, 479
+        - miss, 458
+        - sterio, 455
+        - sake, 452
+        - devil, 415
+        - taco, 394
+        - lolcaps, 364
+        - veryscary, 362
+        - nutty, 350
+        - sajent, 297
+        - ipkiss, 294
+        - piata, 262
+        - redeye, 254
+        - carpenter, 238
+        - lsecannon28, 171
+        - sweetcheeks, 99
+        - yuanz, 83
+        - earth, 76
+        - tetchy, 42
+        - oldfart, 17
+    inferno:
+      score: 737
+      players:
+        - haggis, 747
+        - homerclees, 702
+        - jx, 594
+        - sliderzero, 550
+        - theaftermath, 509
+        - slush, 502
+        - forgotpassword, 500
+        - m80, 486
+        - dirkdiggler, 454
+        - thaen, 376
+        - pete, 367
+        - irvin, 334
+        - systeme, 321
+        - mp40, 320
+        - warchilde, 264
+        - domestic, 249
+        - clapcheeks, 247
+        - gunther, 176
+        - cooter, 174
+        - elliebackwards, 14
+        - idhona, 10
+
+
+- date: 2025-03-01
+  mission: twl jagged claw ctf
+  results:
+    storm:
+      score: 24
+      players:
+        - gunther, 587
+        - bizzy, 537
+        - cooter, 518
+        - darrellw, 460
+        - sake, 433
+        - notjocabdfs, 423
+        - irvin, 372
+        - taco, 359
+        - domestic, 352
+        - forgotpassword, 341
+        - raynian, 313
+        - 12hp, 291
+        - systeme, 267
+        - tylermarket, 266
+        - tomz, 193
+        - actionswanson, 181
+        - eeor, 152
+        - calinou, 132
+        - yuanz, 114
+        - flakpyro, 85
+        - bahke, 75
+        - oops, 43
+    inferno:
+      score: 217
+      players:
+        - nutty, 501
+        - history, 481
+        - theaftermath, 464
+        - pedro, 426
+        - devil, 410
+        - 7thbishop, 390
+        - vaxity, 369
+        - dirkdiggler, 338
+        - sajent, 282
+        - tetchy, 273
+        - ipkiss, 266
+        - carpenter, 260
+        - warchilde, 237
+        - piata, 225
+        - homerclees, 215
+        - miss, 210
+        - sliderzero, 164
+        - elliebackwards, 151
+        - hexy, 142
+        - lolcaps, 96
+        - clubkid, 87
+        - sevenup, 62
+        - commissarfarzi, 59
+        - oldfart, 17
+        - basementathlete, 0
+
+
+- date: 2025-03-01
+  mission: twl harvester ctf
+  results:
+    storm:
+      score: 123
+      players:
+        - hexy, 477
+        - history, 442
+        - bizzy, 358
+        - vaxity, 337
+        - sajent, 325
+        - mp40, 302
+        - pedro, 290
+        - sake, 259
+        - nutty, 256
+        - devil, 246
+        - miss, 230
+        - cooter, 215
+        - eeor, 167
+        - actionswanson, 157
+        - tylermarket, 148
+        - raynian, 124
+        - dirkdiggler, 121
+        - calinou, 114
+        - oldfart, 95
+        - gunther, 94
+        - lsecannon28, 77
+        - tomz, 69
+        - sevenup, 10
+    inferno:
+      score: 228
+      players:
+        - theaftermath, 501
+        - sliderzero, 474
+        - homerclees, 327
+        - hpi, 312
+        - notjocabdfs, 306
+        - taco, 303
+        - ipkiss, 264
+        - thaen, 253
+        - irvin, 251
+        - tetchy, 228
+        - forgotpassword, 225
+        - lolcaps, 193
+        - domestic, 160
+        - systeme, 152
+        - piata, 145
+        - elliebackwards, 142
+        - alterego, 138
+        - warchilde, 124
+        - yuanz, 97
+        - flakpyro, 91
+        - clubkid, 70
+        - carpenter, 62
+        - basementathlete, 0
+
+- date: 2025-03-01
+  mission: twl stonehenge ctf
+  results:
+    storm:
+      score: 118
+      players:
+        - sake, 352
+        - sliderzero, 322
+        - hexy, 315
+        - piata, 311
+        - thaen, 298
+        - nutty, 25
+        - lolcaps, 223
+        - homerclees, 221
+        - sajent, 176
+        - systeme, 175
+        - vaxity, 172
+        - raynian, 141
+        - irvin, 139
+        - pedro, 132
+        - actionswanson, 126
+        - tylermarket, 104
+        - elliebackwards, 97
+        - yuanz, 94
+        - oldfart, 86
+    inferno:
+      score: 821
+      players:
+        - theaftermath, 583
+        - notjocabdfs, 406
+        - hpi, 381
+        - miss, 366
+        - devil, 338
+        - clubkid, 269
+        - gunther, 262
+        - forgotpassword, 250
+        - dirkdiggler, 246
+        - ipkiss, 234
+        - taco, 229
+        - warchilde, 227
+        - gkode, 210
+        - mp40, 208
+        - cooter, 155
+        - tetchy, 145
+        - history, 121
+        - carpenter, 84
+        - flakpyro, 45
+
+
+- date: 2025-03-01
+  mission: twl subzero ctf
+  results:
+    storm:
+      score: 16
+      players:
+        - hexy, 493
+        - pedro, 32
+        - vaxity, 293
+        - dirkdiggler, 191
+        - cooter, 184
+        - history, 178
+        - tetchy, 144
+        - taco, 142
+        - rjay, 140
+        - piata, 139
+        - mp40, 123
+        - flakpyro, 122
+        - tylermarket, 117
+        - actionswanson, 100
+        - yuanz, 83
+        - gkode, 52
+        - carpenter, 21
+        - raynian, 11
+        - oldfart, 8
+    inferno:
+      score: 725
+      players:
+        - theaftermath, 409
+        - sliderzero, 391
+        - miss, 360
+        - thaen, 333
+        - notjocabdfs, 288
+        - homerclees, 263
+        - forgotpassword, 245
+        - sajent, 235
+        - irvin, 222
+        - hpi, 201
+        - clubkid, 165
+        - ipkiss, 162
+        - sake, 133
+        - lolcaps, 131
+        - warchilde, 119
+        - systeme, 113
+        - elliebackwards, 110
+        - gunther, 82
+        - lsecannon28, 76
+
+
+- date: 2025-11-01
+  mission: twl ocular ctf
+  results:
+    storm:
+      score: 318
+      players:
+        - vaxity, 398
+        - flakpyro, 375
+        - spergtime, 288 #jazz?jizz? same person?
+        - taco, 250
+        - mlgru, 224
+        - sake, 215
+        - bish, 182
+        - irvin, 162
+        - dirkdiggler, 161
+        - 7thbishop, 140
+        - strazz, 137
+        - geekofwires, 113
+        - lsecannon28, 64
+        - andycap, 56
+        - lazer, 50
+    inferno:
+      score: 821
+      players:
+        - raynian, 750
+        - bendover, 417
+        - danno, 401
+        - gunther, 346
+        - thaen, 271
+        - turtlebacon, 262
+        - actionswanson, 245
+        - bizzy, 245
+        - elrick, 231
+        - aromatomato, 176
+        - carpenter, 172
+        - sweetcheeks, 147
+        - coorslightman, 146
+        - earth, 144
+        - 2short, 100
+        - elliebackwards, 73
+
+
+- date: 2025-11-01
+  mission: shock ridge ctf
+  results:
+    storm:
+      score: 324
+      players:
+        - bendover, 500
+        - danno, 451
+        - flakpyro, 350
+        - exogen, 349
+        - thaen, 324
+        - cooljuke, 324
+        - turtlebacon, 300
+        - jerry, 261
+        - raynian, 234
+        - irvin, 210
+        - sirdumbass, 187
+        - warchilde, 175
+        - yuanz, 174
+        - carpenter, 151
+        - gunther, 142
+        - lolcaps, 136
+        - sweetcheeks, 132
+        - taco, 121
+        - andycap, 115
+        - earth, 110
+        - heat, 99
+    inferno:
+      score: 423
+      players:
+        - vaxity, 572
+        - bizzy, 456
+        - spergtime, 422
+        - devil, 317
+        - sake, 311
+        - coorslightman, 270
+        - foxox, 256
+        - mlgru, 254
+        - 7thbishop, 229
+        - bish, 221
+        - blake, 209
+        - actionswanson, 205
+        - geekofwires, 199
+        - strazz, 190
+        - elliebackwards, 161
+        - daznova, 147
+        - lsecannon28, 107
+        - aromatomato, 83
+        - lazer, 67
+        - dirkdiggler, 20
+
+
+
+- date: 2025-11-01
+  mission: twl stonehenge ctf
+  results:
+    storm:
+      score: 645
+      players:
+        - vaxity, 918
+        - danno, 685
+        - devil, 681
+        - spergtime, 653
+        - blake, 643
+        - cooljuke, 606
+        - irvin, 605
+        - strazz, 584
+        - turtlebacon, 496
+        - sweetcheeks, 493
+        - mlgru, 439
+        - carpenter, 425
+        - flyersfan, 412
+        - foxox, 402
+        - pupecki, 316
+        - aromatomato, 314
+        - lghtspd, 304
+        - elliebackwards, 300
+        - geekofwires, 297
+        - heat, 243
+        - lazer, 189
+        - dirkdiggler, 167
+        - lsecannon28, 122
+    inferno:
+      score: 850
+      players:
+        - bendover, 1095
+        - m80, 958
+        - pete, 914
+        - thaen, 909
+        - bizzy, 834
+        - 2short, 817
+        - sake, 719
+        - gunther, 717
+        - jerry, 622
+        - daddyroids, 618
+        - actionswanson, 607
+        - sirdumbass, 558
+        - flakpyro, 513
+        - bish, 390
+        - exogen, 340
+        - warchilde, 321
+        - 7thbishop, 311
+        - coorslightman, 298
+        - alterego, 297
+        - raynian, 275
+        - andycap, 249
+        - daznova, 245
+        - yuanz, 209
+
+
+
+
+# - date: 2025-
 #   mission:
 #   results:
 #     storm:
 #       score:
 #       players:
+
 #     inferno:
 #       score:
 #       players:
-
-
-
-# - date: 2025-09
-#   mission:
-#   results:
-#     storm:
-#       score:
-#       players:
-#         -
-#     inferno:
-#       score:
-#       players:
-#         -

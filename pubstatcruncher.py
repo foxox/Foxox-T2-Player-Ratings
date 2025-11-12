@@ -342,18 +342,27 @@ for match in file_contents:
 # Print conditional probabilities
 player_to_win_rate = dict()
 for matchkvp in player_to_match_count.items():
-  if matchkvp[1] < 30:
+  if matchkvp[1] < 38:
     continue
   player_to_win_rate[matchkvp[0]] = player_to_win_count[matchkvp[0]] / matchkvp[1]
 player_to_win_rate_sorted = list(player_to_win_rate.items())
 player_to_win_rate_sorted.sort(key=lambda p: p[1], reverse=True)
 print('Best (and worst) player win rates:\n','\n'.join([str(x) for x in player_to_win_rate_sorted]))
 
+player_to_win_rate = dict()
+for matchkvp in player_to_match_count.items():
+  if matchkvp[1] > 38 or matchkvp[1] < 19:
+    continue
+  player_to_win_rate[matchkvp[0]] = player_to_win_count[matchkvp[0]] / matchkvp[1]
+player_to_win_rate_sorted = list(player_to_win_rate.items())
+player_to_win_rate_sorted.sort(key=lambda p: p[1], reverse=True)
+print('Lower confidence Best (and worst) player win rates:\n','\n'.join([str(x) for x in player_to_win_rate_sorted]))
+
 print()
 
 duo_to_win_rate = dict()
 for matchkvp in duo_to_match_count.items():
-  if matchkvp[1] < 17:
+  if matchkvp[1] < 18:
     continue
   duo_to_win_rate[matchkvp[0]] = duo_to_win_count[matchkvp[0]] / matchkvp[1]
 duo_to_win_rate_sorted = list(duo_to_win_rate.items())
@@ -364,7 +373,7 @@ print()
 
 trio_to_win_rate = dict()
 for matchkvp in trio_to_match_count.items():
-  if matchkvp[1] < 9:
+  if matchkvp[1] < 10:
     continue
   trio_to_win_rate[matchkvp[0]] = trio_to_win_count[matchkvp[0]] / matchkvp[1]
 trio_to_win_rate_sorted = list(trio_to_win_rate.items())
