@@ -124,6 +124,9 @@ players_to_roles = {
   'lolcaps':['cap'],
   'aftermath':['ld'],
   'fnatic':['ld'],
+  'cooljuke':['snipe'],
+  'sterio':['ld'],
+  'jazz':['ho','ld','cap'],
 }
 
 first_roles_to_players = dict()
@@ -143,6 +146,19 @@ for player,roles in players_to_roles.items():
       any_roles_to_players[role] = list()
     any_roles_to_players[role].append(player)
 
+
+# D doesn't include farm and O doesn't include cap
+role_relationships = {'defense':['tank','hd','lof','hof','ld','flex','shrike','snipe'],'offense':['shrike','ho','snipe','flex','lo','snipe']}
+any_roles_to_players['defense'] = list()
+print("any_roles_to_players['defense']:",any_roles_to_players['defense'])
+print("any_roles_to_players['offense']:",any_roles_to_players['offense'])
+for (role, related_roles) in role_relationships.items():
+  if role not in any_roles_to_players:
+    any_roles_to_players[role] = list()
+  for related_role in related_roles:
+    any_roles_to_players[role].append(any_roles_to_players[related_role])
+print("expanded any_roles_to_players['defense']:",any_roles_to_players['defense'])
+print("any_roles_to_players['offense']:",any_roles_to_players['offense'])
 
 player_to_win_count = dict()
 player_to_match_count = dict()
@@ -339,6 +355,11 @@ for match in file_contents:
 #   players.sort(key=lambda p: stpwglickos[p].rating if p in stpwglickos else 1400, reverse=True)
 #   print('sorted:',role,players)
 
+# Warn missing first roles
+# for player in player_to_match_count.keys():
+#   if player not in players_to_roles:
+#     print("Warning: player '{}' has no first role defined".format(player))
+
 # Print conditional probabilities
 player_to_win_rate = dict()
 for matchkvp in player_to_match_count.items():
@@ -358,6 +379,32 @@ player_to_win_rate_sorted = list(player_to_win_rate.items())
 player_to_win_rate_sorted.sort(key=lambda p: p[1], reverse=True)
 print('Lower confidence Best (and worst) player win rates:\n','\n'.join([str(x) for x in player_to_win_rate_sorted]))
 
+print('')
+
+# As above but per role
+for role, players in first_roles_to_players.items():
+  # print([str((p,player_to_match_count[p])) for p in players if p in player_to_match_count])
+  player_match_counts = [player_to_match_count[p] for p in players if p in player_to_match_count]
+  player_match_counts.sort()
+
+  top_third_match_count = player_match_counts[len(player_match_counts)*2//3]
+  middle_third_match_count = player_match_counts[len(player_match_counts)//3]
+  # print('Role:',role,'player match counts:',player_match_counts,'top third cutoff:',top_third_match_count,'middle third cutoff:',middle_third_match_count)
+
+  significant_players = [(p, player_to_win_count[p] / player_to_match_count[p]) for p in players if p in player_to_match_count and player_to_match_count[p] >= top_third_match_count]
+  significant_players.sort(key=lambda p: p[1], reverse=True)
+  print('Higher confidence',role,[p[0]+' '+format(p[1],'.2f') for p in significant_players])
+  
+  significant_players = [(p, player_to_win_count[p] / player_to_match_count[p]) for p in players if p in player_to_match_count and player_to_match_count[p] >= middle_third_match_count and player_to_match_count[p] < top_third_match_count]
+  significant_players.sort(key=lambda p: p[1], reverse=True)
+  print('Middle confidence',role,[p[0]+' '+format(p[1],'.2f') for p in significant_players])
+
+  significant_players = [(p, player_to_win_count[p] / player_to_match_count[p]) for p in players if p in player_to_match_count and player_to_match_count[p] < middle_third_match_count and player_to_match_count[p] > 1]
+  significant_players.sort(key=lambda p: p[1], reverse=True)
+  print('Lower  confidence',role,[p[0]+' '+format(p[1],'.2f') for p in significant_players])
+
+  print()
+
 print()
 
 duo_to_win_rate = dict()
@@ -367,7 +414,7 @@ for matchkvp in duo_to_match_count.items():
   duo_to_win_rate[matchkvp[0]] = duo_to_win_count[matchkvp[0]] / matchkvp[1]
 duo_to_win_rate_sorted = list(duo_to_win_rate.items())
 duo_to_win_rate_sorted.sort(key=lambda p: p[1], reverse=True)
-print('Best (and worst) duo win rates:\n','\n'.join([str(x) for x in duo_to_win_rate_sorted]))
+print('Duo win rates (n >= 18):\n','\n'.join([str(x) for x in duo_to_win_rate_sorted]))
 
 print()
 
@@ -378,6 +425,6 @@ for matchkvp in trio_to_match_count.items():
   trio_to_win_rate[matchkvp[0]] = trio_to_win_count[matchkvp[0]] / matchkvp[1]
 trio_to_win_rate_sorted = list(trio_to_win_rate.items())
 trio_to_win_rate_sorted.sort(key=lambda p: p[1], reverse=True)
-print('Best (and worst) trio win rates:\n','\n'.join([str(x) for x in trio_to_win_rate_sorted]))
+print('Trio win rates (n >= 10):\n','\n'.join([str(x) for x in trio_to_win_rate_sorted]))
 
 print()

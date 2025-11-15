@@ -29,21 +29,21 @@
         - freegunther, 160
         - xzxz, 155
         - aromatomato, 126
-        - lsecannon28, 119
+        - lsecannon, 119
         - legelos, 116
         - daddyroids, 71
         - raynian, 58
     inferno:
       score: 133
       players:
-        - theaftermath, 400
+        - aftermath, 400
         - thaen, 363
         - astralis, 333
         - mp40, 284
         - mlgru, 278
         - bendover, 267
-        - therealjohnwayne, 259
-        - xxxjerry69, 243
+        - johnwayne, 259
+        - jerry, 243
         - daheat, 237
         - irvin, 233
         - doug, 190
@@ -68,11 +68,11 @@
       players:
         - danno, 369
         - thaen, 349
-        - xxxjerry69, 347
+        - jerry, 347
         - jazz, 319
-        - therealjohnwayne, 271
+        - johnwayne, 271
         - sake, 221
-        - lsecannon28, 193
+        - lsecannon, 193
         - mlgru, 174
         - daheat, 166
         - xzxz, 154
@@ -121,7 +121,7 @@
         - bendover, 100
         - piata, 98
         - strazz, 90
-        - xxxjerry69, 80
+        - jerry, 80
         - daznova, 63
         - zool, 60
         - raynian, 58
@@ -144,7 +144,7 @@
         - foxox, 122
         - actionswanson, 115
         - irvin, 114
-        - therealjohnwayne, 110
+        - johnwayne, 110
         - spookyfuture, 85
         - m80, 83
         - gunther, 77
@@ -194,7 +194,7 @@
         - dirkdiggler, 183
         - actionswanson, 180
         - spookyfuture, 154
-        - therealjohnwayne, 121
+        - johnwayne, 121
         - systeme, 120
         - pupecki, 118
         - aromatomato, 110
@@ -227,7 +227,7 @@
         - strazz, 257
         - gabeowners, 256
         - caution, 190
-        - lsecannon28, 172
+        - lsecannon, 172
         - earth, 113
     inferno:
       score: 635
@@ -261,7 +261,7 @@
         - haggis, 534
         - papalazarou, 369
         - exogen, 339
-        - therealjohnwayne, 314
+        - johnwayne, 314
         - danno, 304
         - friendo, 291
         - flakpyro, 251
@@ -315,10 +315,10 @@
         - aromatomato, 235
         - heat, 199
         - flakpyro, 174
-        - therealjohnwayne, 167
+        - johnwayne, 167
         - geekofwires, 118
         - raynian, 105
-        - lsecannon28, 42
+        - lsecannon, 42
         - foxox, 32
         - lazer, 16
     inferno:
@@ -387,7 +387,7 @@
         - heat, 158
         - doug, 157
         - irvin, 142
-        - lsecannon28, 125
+        - lsecannon, 125
         - earth, 123
         - warchilde, 114
         - yuanz, 88
@@ -446,7 +446,7 @@
         - pupecki, 60
         - doug, 57
         - lazer, 43
-        - lsecannon28, 2
+        - lsecannon, 2
 
 
 - date: 2025-10-12
@@ -463,7 +463,7 @@
         - haggis, 472
         - mlgru, 438
         - geekofwires, 358
-        - therealjohnwayne, 256
+        - johnwayne, 256
         - xzxz, 231
         - aromatomato, 230
         - slush, 218
@@ -483,13 +483,13 @@
         - daheat, 315
         - 7thbishop, 314
         - bish, 304
-        - xxxjerry69, 297
+        - jerry, 297
         - irvin, 278
         - history, 275
         - piata, 195
         - dirkdiggler, 179
         - elliebackwards, 170
-        - lsecannon28, 160
+        - lsecannon, 160
         - earth, 132
         - caution, 90
 
@@ -506,7 +506,7 @@
         - slush, 499
         - jazz, 451
         - nutty, 398
-        - therealjohnwayne, 382
+        - johnwayne, 382
         - thaen, 334
         - warchilde, 233
         - doug, 217
@@ -515,7 +515,7 @@
         - foxox, 162
         - geekofwires, 156
         - piata, 145
-        - lsecannon28, 123
+        - lsecannon, 123
         - aromatomato, 96
         - carpenter, 74
         - 7thbishop, 16
@@ -530,7 +530,7 @@
         - irvin, 422
         - freegunther, 420
         - strazz, 377
-        - xxxjerry69, 359
+        - jerry, 359
         - bendover, 359
         - halo2, 358
         - bish, 313
@@ -557,7 +557,7 @@
         - flakpyro, 295
         - irvin, 277
         - warchilde, 259
-        - therealjohnwayne, 245
+        - johnwayne, 245
         - doug, 239
         - piata, 229
         - xzxz, 220
@@ -617,7 +617,7 @@
         - earth, 43
         - warchilde, 34
         - lazer, 32
-        - lsecannon28, 21
+        - lsecannon, 21
         - zerooptix, 14
     inferno:
       score: 8
@@ -656,7 +656,7 @@
         - mlgru, 432
         - sake, 431
         - halo2, 403
-        - darrellw, 401
+        - darrell, 401
         - fnatic, 372
         - slush, 345
         - jazz, 313
@@ -664,7 +664,7 @@
         - mp40, 285
         - piata, 281
         - warchilde, 274
-        - therealjohnwayne, 234
+        - johnwayne, 234
         - flakpyro, 221
         - yuanz, 212
         - andycap, 203
@@ -692,8 +692,8 @@
         - lolcaps, 196
         - gabeowners, 185
         - strazz, 184
-        - xxxjerry69, 178
-        - lsecannon28, 176
+        - jerry, 178
+        - lsecannon, 176
         - systeme, 168
         - elliebackwards, 147
         - uwumudshark, 141
@@ -717,7 +717,7 @@
         - haggis, 270
         - nutty, 264
         - mp40, 256
-        - xxxjerry69, 253
+        - jerry, 253
         - strazz, 221
         - lolcaps, 217
         - doug, 214
@@ -726,7 +726,7 @@
         - irvin, 170
         - gabeowners, 152
         - foxox, 145
-        - lsecannon28, 137
+        - lsecannon, 137
         - sirdumbass, 130
         - tetchy, 120
         - aromatomato, 113
@@ -776,7 +776,7 @@
         - doug, 183
         - geekofwires, 175
         - actionswanson, 141
-        - therealjohnwayne, 128
+        - johnwayne, 128
         - spookyfuture, 126
         - aromatomato, 98
         - dirkdiggler, 96
@@ -828,8 +828,8 @@
         - foxox, 233
         - aromatomato, 226
         - irvin, 225
-        - lsecannon28, 211
-        - therealjohnwayne, 199
+        - lsecannon, 211
+        - johnwayne, 199
         - 7thbishop, 175
         - lazer, 102
         - caution, 86
@@ -869,7 +869,7 @@
         - slush, 333
         - fnatic, 332
         - flakpyro, 290
-        - xxxjerry69, 284
+        - jerry, 284
         - daddyroids, 280
         - doug, 277
         - 7thbishop, 249
@@ -886,7 +886,7 @@
         - heat, 109
         - loop, 85
         - gabeowners, 83
-        - lsecannon28, 81
+        - lsecannon, 81
         - halo2, -10
     inferno:
       score: 223
@@ -940,8 +940,8 @@
         - mistcane, 53
         - carpenter, 47
         - daddyroids, 46
-        - xxxjerry69, 42
-        - lsecannon28, 41
+        - jerry, 42
+        - lsecannon, 41
         - lazer, 36
         - heat, 17
     inferno:
@@ -985,10 +985,10 @@
         - uwumudshark, 292
         - jazz, 282
         - slush, 281
-        - therealjohnwayne, 215
+        - johnwayne, 215
         - sweetcheeks, 179
         - daheat, 177
-        - lsecannon28, 153
+        - lsecannon, 153
         - 7thbishop, 138
         - earth, 122
         - freegunther, 50
@@ -1038,7 +1038,7 @@
         - yuanz, 143
         - carpenter, 125
         - 7thbishop, 93
-        - lsecannon28, 73
+        - lsecannon, 73
         - lolcaps, 40
         - dirkdiggler, 17
         - andycap, 12
@@ -1080,7 +1080,7 @@
         - bendover, 440
         - fnatic, 401
         - elliebackwards, 373
-        - xxxjerry69, 356
+        - jerry, 356
         - mlgru, 355
         - vaxity, 320
         - thaen, 318
@@ -1097,7 +1097,7 @@
         - pupecki, 137
         - warchilde, 122
         - carpenter, 63
-        - lsecannon28, 57
+        - lsecannon, 57
         - 2short, 55
     inferno:
       score: 414
@@ -1164,7 +1164,7 @@
       players:
         - geekofwires, 636
         - halo2, 578
-        - theaftermath, 567
+        - aftermath, 567
         - sliderzero, 481
         - bendover, 386
         - bish, 365
@@ -1186,7 +1186,7 @@
         - 2short, 82
         - sevenup, 57
         - elliebackwards, 39
-        - lsecannon28, 32
+        - lsecannon, 32
 
 
 
@@ -1219,7 +1219,7 @@
         - phillieskaren, 117
         - 2short, 11
         - lazer, 95
-        - lsecannon28, 42
+        - lsecannon, 42
     inferno:
       score: 720
       players:
@@ -1263,7 +1263,7 @@
     storm:
       score: 108
       players:
-        - theaftermath, 485
+        - aftermath, 485
         - raygetard, 417
         - sake, 375
         - sliderzero, 371
@@ -1276,7 +1276,7 @@
         - dirkdiggler, 193
         - raynian, 17
         - history, 174
-        - lsecannon28, 168
+        - lsecannon, 168
         - nightwear, 162
         - elliebackwards, 151
         - foxox, 143
@@ -1326,7 +1326,7 @@
         - danno, 452
         - warchilde, 423
         - gunther, 416
-        - theaftermath, 389
+        - aftermath, 389
         - irvin, 364
         - naturaltalent, 307
         - aromatomato, 295
@@ -1338,7 +1338,7 @@
         - systeme, 200
         - foxox, 192
         - heat, 183
-        - lsecannon28, 165
+        - lsecannon, 165
         - caution, 157
         - earth, 149
         - sirdumbass, 120
@@ -1416,7 +1416,7 @@
         - doug, 68
         - pupecki, 50
         - history, 33
-        - lsecannon28, 12
+        - lsecannon, 12
         - oldfart, 11
         - happymealtoy, 10
 
@@ -1432,7 +1432,7 @@
         - raynian, 575
         - bamboozled, 556
         - brutalamerican, 444
-        - homerclees, 369
+        - homer, 369
         - apathy, 357
         - irvin, 319
         - taco, 286
@@ -1445,7 +1445,7 @@
       score: 117
       players:
         - piata, 486
-        - theaftermath, 483
+        - aftermath, 483
         - domestic, 302
         - exogen, 296
         - darksniper78, 268
@@ -1479,9 +1479,9 @@
       score: 621
       players:
         - jx, 509
-        - darrellw, 454
+        - darrell, 454
         - irvin, 399
-        - theaftermath, 389
+        - aftermath, 389
         - 7thbishop, 283
         - exogen, 256
         - kamalaharris, 255
@@ -1737,12 +1737,12 @@
       players:
         - hexy, 609
         - sliderzero, 474
-        - theaftermath, 367
+        - aftermath, 367
         - sajent, 312
         - devil, 281
         - ipkiss, 257
         - redeye, 249
-        - homerclees, 246
+        - homer, 246
         - irvin, 240
         - veryscary, 235
         - miss, 210
@@ -1780,7 +1780,7 @@
         - warchilde, 144
         - sweetcheeks, 118
         - oldfart, 104
-        - lsecannon28, 98
+        - lsecannon, 98
         - tomz, 25
 
 
@@ -1791,14 +1791,14 @@
       score: 419
       players:
         - haggis, 647
-        - theaftermath, 445
+        - aftermath, 445
         - veryscary, 410
         - hexy, 307
         - redeye, 265
         - sake, 265
         - forgotpassword, 263
         - sajent, 256
-        - homerclees, 220
+        - homer, 220
         - miss, 175
         - legelos, 170
         - slush, 169
@@ -1831,7 +1831,7 @@
         - piata, 173
         - cooter, 151
         - carpenter, 146
-        - lsecannon28, 142
+        - lsecannon, 142
         - taco, 70
         - dirkdiggler, 60
         - sevenup, 58
@@ -1845,7 +1845,7 @@
     storm:
       score: 120
       players:
-        - theaftermath, 356
+        - aftermath, 356
         - jx, 344
         - m80, 301
         - devil, 292
@@ -1860,7 +1860,7 @@
         - mp40, 181
         - lolcaps, 181
         - dirkdiggler, 156
-        - homerclees, 145
+        - homer, 145
         - carpenter, 128
         - legelos, 111
         - raynian, 84
@@ -1882,7 +1882,7 @@
         - redeye, 249
         - sajent, 226
         - veryscary, 203
-        - lsecannon28, 175
+        - lsecannon, 175
         - irvin, 175
         - piata, 145
         - yuanz, 143
@@ -1915,7 +1915,7 @@
         - piata, 262
         - redeye, 254
         - carpenter, 238
-        - lsecannon28, 171
+        - lsecannon, 171
         - sweetcheeks, 99
         - yuanz, 83
         - earth, 76
@@ -1925,10 +1925,10 @@
       score: 737
       players:
         - haggis, 747
-        - homerclees, 702
+        - homer, 702
         - jx, 594
         - sliderzero, 550
-        - theaftermath, 509
+        - aftermath, 509
         - slush, 502
         - forgotpassword, 500
         - m80, 486
@@ -1956,7 +1956,7 @@
         - gunther, 587
         - bizzy, 537
         - cooter, 518
-        - darrellw, 460
+        - darrell, 460
         - sake, 433
         - notjocabdfs, 423
         - irvin, 372
@@ -1980,7 +1980,7 @@
       players:
         - nutty, 501
         - history, 481
-        - theaftermath, 464
+        - aftermath, 464
         - pedro, 426
         - devil, 410
         - 7thbishop, 390
@@ -1992,7 +1992,7 @@
         - carpenter, 260
         - warchilde, 237
         - piata, 225
-        - homerclees, 215
+        - homer, 215
         - miss, 210
         - sliderzero, 164
         - elliebackwards, 151
@@ -2031,15 +2031,15 @@
         - calinou, 114
         - oldfart, 95
         - gunther, 94
-        - lsecannon28, 77
+        - lsecannon, 77
         - tomz, 69
         - sevenup, 10
     inferno:
       score: 228
       players:
-        - theaftermath, 501
+        - aftermath, 501
         - sliderzero, 474
-        - homerclees, 327
+        - homer, 327
         - hpi, 312
         - notjocabdfs, 306
         - taco, 303
@@ -2074,7 +2074,7 @@
         - thaen, 298
         - nutty, 25
         - lolcaps, 223
-        - homerclees, 221
+        - homer, 221
         - sajent, 176
         - systeme, 175
         - vaxity, 172
@@ -2089,7 +2089,7 @@
     inferno:
       score: 821
       players:
-        - theaftermath, 583
+        - aftermath, 583
         - notjocabdfs, 406
         - hpi, 381
         - miss, 366
@@ -2138,12 +2138,12 @@
     inferno:
       score: 725
       players:
-        - theaftermath, 409
+        - aftermath, 409
         - sliderzero, 391
         - miss, 360
         - thaen, 333
         - notjocabdfs, 288
-        - homerclees, 263
+        - homer, 263
         - forgotpassword, 245
         - sajent, 235
         - irvin, 222
@@ -2156,7 +2156,7 @@
         - systeme, 113
         - elliebackwards, 110
         - gunther, 82
-        - lsecannon28, 76
+        - lsecannon, 76
 
 
 - date: 2025-11-01
@@ -2177,7 +2177,7 @@
         - 7thbishop, 140
         - strazz, 137
         - geekofwires, 113
-        - lsecannon28, 64
+        - lsecannon, 64
         - andycap, 56
         - lazer, 50
     inferno:
@@ -2247,7 +2247,7 @@
         - strazz, 190
         - elliebackwards, 161
         - daznova, 147
-        - lsecannon28, 107
+        - lsecannon, 107
         - aromatomato, 83
         - lazer, 67
         - dirkdiggler, 20
@@ -2276,13 +2276,13 @@
         - foxox, 402
         - pupecki, 316
         - aromatomato, 314
-        - lghtspd, 304
+        - fnatic, 304
         - elliebackwards, 300
         - geekofwires, 297
         - heat, 243
         - lazer, 189
         - dirkdiggler, 167
-        - lsecannon28, 122
+        - lsecannon, 122
     inferno:
       score: 850
       players:
