@@ -34,6 +34,7 @@ stpwglickos = dict()
 # Team Player Glickos
 tpglickos = dict()
 
+# Guesses at player primary roles based on information provided by the community and my observations
 players_to_roles = {
   'stormcrow':['ld','lof'],
   'jacob':['ld','lo','cap'],
@@ -146,7 +147,7 @@ for player,roles in players_to_roles.items():
       any_roles_to_players[role] = list()
     any_roles_to_players[role].append(player)
 
-
+# Some roles imply other roles or role categories, such as HO implying O.
 # D doesn't include farm and O doesn't include cap
 role_relationships = {'defense':['tank','hd','lof','hof','ld','flex','shrike','snipe'],'offense':['shrike','ho','snipe','flex','lo','snipe']}
 any_roles_to_players['defense'] = list()
@@ -368,7 +369,7 @@ for matchkvp in player_to_match_count.items():
   player_to_win_rate[matchkvp[0]] = player_to_win_count[matchkvp[0]] / matchkvp[1]
 player_to_win_rate_sorted = list(player_to_win_rate.items())
 player_to_win_rate_sorted.sort(key=lambda p: p[1], reverse=True)
-print('Best (and worst) player win rates:\n','\n'.join([str(x) for x in player_to_win_rate_sorted]))
+print('Higher confidence Best (and worst) player win rates:\n','\n'.join([str(x) for x in player_to_win_rate_sorted]))
 
 player_to_win_rate = dict()
 for matchkvp in player_to_match_count.items():
