@@ -359,8 +359,10 @@ for match in file_contents:
 
 # Print conditional probabilities
 player_to_win_rate = dict()
+match_count_high_threshold = 40
+match_count_low_threshold = 27
 for matchkvp in player_to_match_count.items():
-  if matchkvp[1] < 38:
+  if matchkvp[1] < match_count_high_threshold:
     continue
   player_to_win_rate[matchkvp[0]] = player_to_win_count[matchkvp[0]] / matchkvp[1]
 player_to_win_rate_sorted = list(player_to_win_rate.items())
@@ -369,7 +371,7 @@ print('Higher confidence Best (and worst) player win rates:\n','\n'.join([str(x)
 
 player_to_win_rate = dict()
 for matchkvp in player_to_match_count.items():
-  if matchkvp[1] > 38 or matchkvp[1] < 19:
+  if matchkvp[1] > match_count_high_threshold or matchkvp[1] < match_count_low_threshold:
     continue
   player_to_win_rate[matchkvp[0]] = player_to_win_count[matchkvp[0]] / matchkvp[1]
 player_to_win_rate_sorted = list(player_to_win_rate.items())
@@ -405,7 +407,7 @@ for role, players in first_roles_to_players.items():
 print()
 
 duo_to_win_rate = dict()
-duo_count_threshold = 20
+duo_count_threshold = 22
 for matchkvp in duo_to_match_count.items():
   if matchkvp[1] < duo_count_threshold:
     continue
