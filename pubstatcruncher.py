@@ -1,10 +1,6 @@
 # This script is an exploration into processing PUB/PUG match results into player rankings.
 # Once I hack together something that seems useful, I may try to tidy this up.
 
-# So far, "single team point whore" glicko ratings are the most useful result. This compares players only to their teammates, so when one team dominates another, the ratings are still fair. However, this still suffers from the problem that certain roles tend to score more than others: for example, a top capper is probably going to have a greater score than a top farmer, even though the farmer is critical to the team's success.
-
-# The next thing I would like to compute is a historical conditional probability of winning a match given that a certain pair or trio of players is on the team.
-
 
 import yaml
 from operator import itemgetter
