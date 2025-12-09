@@ -408,23 +408,25 @@ for role, players in first_roles_to_players.items():
 print()
 
 duo_to_win_rate = dict()
+duo_count_threshold = 20
 for matchkvp in duo_to_match_count.items():
-  if matchkvp[1] < 18:
+  if matchkvp[1] < duo_count_threshold:
     continue
   duo_to_win_rate[matchkvp[0]] = duo_to_win_count[matchkvp[0]] / matchkvp[1]
 duo_to_win_rate_sorted = list(duo_to_win_rate.items())
 duo_to_win_rate_sorted.sort(key=lambda p: p[1], reverse=True)
-print('Duo win rates (n >= 18):\n','\n'.join([str(x) for x in duo_to_win_rate_sorted]))
+print('Duo win rates (n >= ',duo_count_threshold,'):\n','\n'.join([str(x) for x in duo_to_win_rate_sorted]))
 
 print()
 
 trio_to_win_rate = dict()
+trio_count_threshold = 12
 for matchkvp in trio_to_match_count.items():
-  if matchkvp[1] < 10:
+  if matchkvp[1] < trio_count_threshold:
     continue
   trio_to_win_rate[matchkvp[0]] = trio_to_win_count[matchkvp[0]] / matchkvp[1]
 trio_to_win_rate_sorted = list(trio_to_win_rate.items())
 trio_to_win_rate_sorted.sort(key=lambda p: p[1], reverse=True)
-print('Trio win rates (n >= 10):\n','\n'.join([str(x) for x in trio_to_win_rate_sorted]))
+print('Trio win rates (n >= ',trio_count_threshold,'):\n','\n'.join([str(x) for x in trio_to_win_rate_sorted]))
 
 print()
