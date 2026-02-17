@@ -221,21 +221,21 @@ for match_result in match_results:
 
 # Print conditional probabilities
 player_to_win_rate = dict()
+num_top_players_to_show = 5 # The number of top players to show in each category.
 
 player_match_counts = list(player_to_match_count.values())
-player_match_counts.sort()
-top_single_tenth_match_count = player_match_counts[len(player_match_counts)*9//10]
+player_match_counts.sort(reverse=True)
+top_single_tenth_match_count = player_match_counts[num_top_players_to_show]
 top_players = [(p, player_to_win_count[p] / player_to_match_count[p]) for p in player_to_match_count.keys() if p in player_to_match_count and player_to_match_count[p] >= top_single_tenth_match_count]
 top_players.sort(key=lambda p: p[1], reverse=True)
-print('Higher confidence singles',[p[0]+' '+format(p[1],'.2f') for p in top_players[:5]])
+print('Highest confidence singles',[p[0]+' '+format(p[1],'.2f') for p in top_players[:num_top_players_to_show]])
 
 duo_match_counts = list(duo_to_match_count.values())
-duo_match_counts.sort()
-top_duo_match_count = duo_match_counts[len(duo_match_counts)*99//100]
+duo_match_counts.sort(reverse=True)
+top_duo_match_count = duo_match_counts[num_top_players_to_show]
 top_duos = [(p, duo_to_win_count[p] / duo_to_match_count[p]) for p in duo_to_match_count.keys() if p in duo_to_match_count and duo_to_match_count[p] >= top_duo_match_count]
 top_duos.sort(key=lambda p: p[1], reverse=True)
-
-print('Higher confidence duos',[str(p[0])+' '+format(p[1],'.2f') for p in top_duos[:5]])
+print('Highest confidence duos',[str(p[0])+' '+format(p[1],'.2f') for p in top_duos[:num_top_players_to_show]])
 
 
 print()
