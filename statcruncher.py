@@ -14,29 +14,39 @@ with open('pubresults.yaml', 'r') as file:
 
 class PlayerResult:
   def __init__(self, yaml_player_result):
-    self.name = yaml_player_result[0]
-    self.score = yaml_player_result[1]
+    player_split = yaml_player_result.split(", ")
+    self.name = player_split[0]
+    self.score = player_split[1]
+    # print('PlayerResult name:', self.name, 'score:', self.score)
   
   def __str__(self):
     return "PlayerResult(name={}, score={})".format(self.name, self.score)
 
 class TeamResult:
-  def __init__(self, yaml_team_result):
+  def __init__(self, yaml_team_result, is_winner):
     self.score = yaml_team_result['score']
-    self.players = [PlayerResult(player) for player in yaml_team_result['players']]
+    self.player_results = [PlayerResult(player) for player in yaml_team_result['players']]
+    self.is_winner = is_winner
   
   def __str__(self):
-    return "TeamResult(score={}, players={})".format(self.score, self.players)
+    return "TeamResult(score={}, players={}, is_winner={})".format(self.score, self.players, self.is_winner)
 
 class MatchResult:
-  def __init__(self, yaml_match_result):
-    self.date = yaml_match_result['date']
-    self.mission = yaml_match_result['mission']
+  def __init__(self, yaml_match):
+    self.date = yaml_match['date']
+    self.mission = yaml_match['mission']
     
-    results = yaml_match_result['results']
-    self.team_results = dict()
-    for (team, team_result) in results.items():
-      self.team_results[team] = TeamResult(team_result)
+    yaml_match_results = yaml_match['results']
+    self.team_results = list()
+
+    # Find the winning team.
+    team_name_list = list(yaml_match_results.keys())
+    assert(len(team_name_list) == 2) # There must be exactly two teams in a match result
+    winning_team_name = team_name_list[0] if yaml_match_results[team_name_list[0]]['score'] > yaml_match_results[team_name_list[1]]['score'] else team_name_list[1]
+
+    # Finish populating the team_results
+    self.team_results = [TeamResult(yaml_team_result, team_name == winning_team_name) for (team_name, yaml_team_result) in yaml_match_results.items()]
+
   
   def __str__(self):
     return "MatchResult(date={}, mission={}, team_results={})".format(self.date, self.mission, self.team_results)
@@ -177,75 +187,36 @@ trio_to_win_count = dict()
 trio_to_match_count = dict()
 
 
+match_results = [MatchResult(match) for match in file_contents]
+
 # loop over all matches
-for match in file_contents:
-
-  match_result = MatchResult(match)
-  print(match_result)
-
-  winning_team_score = 0
-  winning_team_name = None
-  results = match['results']
-  # match
-  for team in results:
-    # print('team:', team)
-    if results[team]['score'] > winning_team_score:
-      winning_team_score = results[team]['score']
-      winning_team_name = team
-
+for match_result in match_results:
 
   # WIN RATE STATS GATHERING. SINGLES, DUOS, TRIOS, ETC.
-  for team in results:
+  for team_result in match_result.team_results:
     
     # SINGLES
-    for player in results[team]['players']:
-      player_split = player.split(", ")
-      playername = player_split[0]
-      # player_tuple = (player_split[0], int(player_split[1]))
-      # 0 is name, 1 is score
-
-      if not playername in player_to_match_count:
-        player_to_match_count[playername] = 0
-      if not playername in player_to_win_count:
-        player_to_win_count[playername] = 0
-      player_to_match_count[playername]+=1
-      if team == winning_team_name:
-        player_to_win_count[playername]+=1
+    for player_result in team_result.player_results:
+      if not player_result.name in player_to_match_count:
+        player_to_match_count[player_result.name] = 0
+      if not player_result.name in player_to_win_count:
+        player_to_win_count[player_result.name] = 0
+      player_to_match_count[player_result.name]+=1
+      if team_result.is_winner:
+        player_to_win_count[player_result.name]+=1
     
     # DUOS
-    for duo in distinct_combinations(results[team]['players'], 2):
-      duo0split = duo[0].split(", ")
-      duo1split = duo[1].split(", ")
-      player_name_duo=(duo0split[0],duo1split[0])
-      # print('Duo ',player_name_duo,' appeared in match ',match)
+    for duo in distinct_combinations(team_result.player_results, 2):
+      player_name_duo = tuple([duo[0].name, duo[1].name])
+      # print('Duo ',player_name_duo,' appeared in match ',match_result.mission,' on date ',match_result.date)
       if not player_name_duo in duo_to_win_count:
         duo_to_win_count[player_name_duo] = 0
       if not player_name_duo in duo_to_match_count:
         duo_to_match_count[player_name_duo] = 0
       duo_to_match_count[player_name_duo]+=1
-      if team == winning_team_name:
+      if team_result.is_winner:
         duo_to_win_count[player_name_duo]+=1
 
-
-  # Count a team win as an individual win for each winning team player against all losing team players (and vice versa for losses)
-  # todo: maybe it should only count as a personal win if your personal score is higher than the other team's player
-  assert(len(results) == 2)
-  winning_team_name = 0
-  losing_team_name = 0
-  lose = 0
-  win = 1
-  team_names = list(results.keys())
-  if results[team_names[0]]['score'] > results[team_names[1]]['score']:
-    winning_team_name = team_names[0]
-    losing_team_name = team_names[1]
-  elif results[team_names[0]]['score'] < results[team_names[1]]['score']:
-    winning_team_name = team_names[1]
-    losing_team_name = team_names[0]
-  else:
-    lose = 0.5
-    win = 0.5
-
-   
 
 # Print conditional probabilities
 player_to_win_rate = dict()
