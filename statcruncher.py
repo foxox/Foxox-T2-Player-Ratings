@@ -2,9 +2,15 @@
 # Once I hack together something that seems useful, I may try to tidy this up.
 
 
+from datetime import datetime
 import yaml
 from operator import itemgetter
 from more_itertools import pairwise, distinct_combinations
+
+
+def str_to_date(date_str):
+  return datetime.strptime(date_str, "%Y-%m-%d").date()
+
 
 print()
 
@@ -33,7 +39,7 @@ class TeamResult:
 
 class MatchResult:
   def __init__(self, yaml_match):
-    self.date = yaml_match['date']
+    self.date = str_to_date(str(yaml_match['date'])) # Just in case the date is still a string, parse it into a date object.
     self.mission = yaml_match['mission']
     
     yaml_match_results = yaml_match['results']
@@ -178,62 +184,96 @@ for (role, related_roles) in role_relationships.items():
     any_roles_to_players[role].append(any_roles_to_players[related_role])
 # print("expanded any_roles_to_players['defense']:",any_roles_to_players['defense'])
 # print("any_roles_to_players['offense']:",any_roles_to_players['offense'])
+  
 
-player_to_win_count = dict()
-player_to_match_count = dict()
-duo_to_win_count = dict()
-duo_to_match_count = dict()
-trio_to_win_count = dict()
-trio_to_match_count = dict()
+def compute_stats_for_time_period(start_date, end_date):
+
+  player_to_win_count = dict()
+  player_to_match_count = dict()
+  duo_to_win_count = dict()
+  duo_to_match_count = dict()
+
+  match_results = [MatchResult(match) for match in file_contents]
+
+  # loop over all matches
+  for match_result in match_results:
+    if match_result.date < start_date or match_result.date > end_date:
+      continue
+
+    # WIN RATE STATS GATHERING. SINGLES, DUOS, TRIOS, ETC.
+    for team_result in match_result.team_results:
+      
+      # SINGLES
+      for player_result in team_result.player_results:
+        if not player_result.name in player_to_match_count:
+          player_to_match_count[player_result.name] = 0
+        if not player_result.name in player_to_win_count:
+          player_to_win_count[player_result.name] = 0
+        player_to_match_count[player_result.name]+=1
+        if team_result.is_winner:
+          player_to_win_count[player_result.name]+=1
+      
+      # DUOS
+      for duo in distinct_combinations(team_result.player_results, 2):
+        player_name_duo = tuple([duo[0].name, duo[1].name])
+        # print('Duo ',player_name_duo,' appeared in match ',match_result.mission,' on date ',match_result.date)
+        if not player_name_duo in duo_to_win_count:
+          duo_to_win_count[player_name_duo] = 0
+        if not player_name_duo in duo_to_match_count:
+          duo_to_match_count[player_name_duo] = 0
+        duo_to_match_count[player_name_duo]+=1
+        if team_result.is_winner:
+          duo_to_win_count[player_name_duo]+=1
+  
+  return (player_to_win_count, player_to_match_count, duo_to_win_count, duo_to_match_count)
 
 
-match_results = [MatchResult(match) for match in file_contents]
 
-# loop over all matches
-for match_result in match_results:
+# Print stat results
 
-  # WIN RATE STATS GATHERING. SINGLES, DUOS, TRIOS, ETC.
-  for team_result in match_result.team_results:
-    
-    # SINGLES
-    for player_result in team_result.player_results:
-      if not player_result.name in player_to_match_count:
-        player_to_match_count[player_result.name] = 0
-      if not player_result.name in player_to_win_count:
-        player_to_win_count[player_result.name] = 0
-      player_to_match_count[player_result.name]+=1
-      if team_result.is_winner:
-        player_to_win_count[player_result.name]+=1
-    
-    # DUOS
-    for duo in distinct_combinations(team_result.player_results, 2):
-      player_name_duo = tuple([duo[0].name, duo[1].name])
-      # print('Duo ',player_name_duo,' appeared in match ',match_result.mission,' on date ',match_result.date)
-      if not player_name_duo in duo_to_win_count:
-        duo_to_win_count[player_name_duo] = 0
-      if not player_name_duo in duo_to_match_count:
-        duo_to_match_count[player_name_duo] = 0
-      duo_to_match_count[player_name_duo]+=1
-      if team_result.is_winner:
-        duo_to_win_count[player_name_duo]+=1
+(all_time_player_to_win_count, all_time_player_to_match_count, all_time_duo_to_win_count, all_time_duo_to_match_count) = compute_stats_for_time_period(str_to_date('2000-01-01'), str_to_date('2100-01-01'))
+all_time_player_names = list(all_time_player_to_match_count.keys())
 
+# Print player win rates CSV style by quarter
+# CSV format:
+# Player,Q1 2025,Q2 2025,Q3 2025,Q4 2025,Q1 2026
+# Foxox,#N/A,0.3,0.4,0.5,0.45
+# Pupecki,#N/A,0.2,0.3,#N/A,0.55
+quarters = [('Q1 2025','2025-01-01','2025-03-31'),('Q2 2025','2025-04-01','2025-06-30'),('Q3 2025','2025-07-01','2025-09-30'),('Q4 2025','2025-10-01','2025-12-31'),('Q1 2026','2026-01-01','2026-03-31')]
+csv_header = 'Player'
+csv_per_player = dict()
+for quarter in quarters:
+  quarter_name = quarter[0]
+  quarter_start_date = str_to_date(quarter[1])
+  quarter_end_date = str_to_date(quarter[2])
+  csv_header+=','+quarter_name
+  (player_to_win_count, player_to_match_count, duo_to_win_count, duo_to_match_count) = compute_stats_for_time_period(quarter_start_date, quarter_end_date)
+  for player in all_time_player_names:
+    # If there is csv row for the player yet, initialize it.
+    if not player in csv_per_player:
+      csv_per_player[player] = []
+    # If the player played at least one match in the quarter, add their win rate to the csv. Otherwise, add #N/A.
+    if player in player_to_match_count and player_to_match_count[player] > 0:
+      csv_per_player[player].append(player_to_win_count[player] / player_to_match_count[player])
+    else:
+      csv_per_player[player].append('#N/A')
+print(csv_header)
+for player in all_time_player_names:
+  print(player+','+','.join([str(x) for x in csv_per_player[player]]))
 
-
-# Print conditional probabilities
-player_to_win_rate = dict()
 num_top_players_to_show = 5 # The number of top players to show in each category.
 
-player_match_counts = list(player_to_match_count.values())
+player_match_counts = list(all_time_player_to_match_count.values())
 player_match_counts.sort(reverse=True)
 top_single_tenth_match_count = player_match_counts[num_top_players_to_show]
-top_players = [(p, player_to_win_count[p] / player_to_match_count[p]) for p in player_to_match_count.keys() if p in player_to_match_count and player_to_match_count[p] >= top_single_tenth_match_count]
+top_players = [(p, all_time_player_to_win_count[p] / all_time_player_to_match_count[p]) for p in all_time_player_to_match_count.keys() if p in all_time_player_to_match_count and all_time_player_to_match_count[p] >= top_single_tenth_match_count]
 top_players.sort(key=lambda p: p[1], reverse=True)
 print('Highest confidence singles',[p[0]+' '+format(p[1],'.2f') for p in top_players[:num_top_players_to_show]])
 
-duo_match_counts = list(duo_to_match_count.values())
+duo_match_counts = list(all_time_duo_to_match_count.values())
 duo_match_counts.sort(reverse=True)
 top_duo_match_count = duo_match_counts[num_top_players_to_show]
-top_duos = [(p, duo_to_win_count[p] / duo_to_match_count[p]) for p in duo_to_match_count.keys() if p in duo_to_match_count and duo_to_match_count[p] >= top_duo_match_count]
+top_duos = [(p, all_time_duo_to_win_count[p] / all_time_duo_to_match_count[p]) for p in all_time_duo_to_match_count.keys() if p in all_time_duo_to_match_count and all_time_duo_to_match_count[p] >= top_duo_match_count]
 top_duos.sort(key=lambda p: p[1], reverse=True)
 print('Highest confidence duos',[str(p[0])+' '+format(p[1],'.2f') for p in top_duos[:num_top_players_to_show]])
 
