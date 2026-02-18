@@ -197,6 +197,12 @@ def compute_stats_for_time_period(start_date, end_date):
 
   # loop over all matches
   for match_result in match_results:
+    
+    # Exclude LT matches
+    if 'LCTF' in match_result.mission:
+      continue
+
+    # Exclude matches outside of the time period
     if match_result.date < start_date or match_result.date > end_date:
       continue
 
@@ -252,8 +258,9 @@ for quarter in quarters:
     # If there is csv row for the player yet, initialize it.
     if not player in csv_per_player:
       csv_per_player[player] = []
-    # If the player played at least one match in the quarter, add their win rate to the csv. Otherwise, add #N/A.
-    if player in player_to_match_count and player_to_match_count[player] > 0:
+    # If the player played at least N matches in the quarter, add their win rate to the csv. Otherwise, add #N/A.
+    N = 6 # Participated in about 1/2 of PUGs in the quarter
+    if player in player_to_match_count and player_to_match_count[player] >= N:
       csv_per_player[player].append(player_to_win_count[player] / player_to_match_count[player])
     else:
       csv_per_player[player].append('#N/A')
