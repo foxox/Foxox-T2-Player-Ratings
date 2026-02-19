@@ -186,6 +186,8 @@ for (role, related_roles) in role_relationships.items():
 # print("any_roles_to_players['offense']:",any_roles_to_players['offense'])
   
 
+match_results = [MatchResult(match) for match in file_contents]
+
 def compute_stats_for_time_period(start_date, end_date):
 
   player_to_win_count = dict()
@@ -193,7 +195,7 @@ def compute_stats_for_time_period(start_date, end_date):
   duo_to_win_count = dict()
   duo_to_match_count = dict()
 
-  match_results = [MatchResult(match) for match in file_contents]
+  # print('Computing stats for time period', start_date, 'to', end_date)
 
   # loop over all matches
   for match_result in match_results:
@@ -211,6 +213,8 @@ def compute_stats_for_time_period(start_date, end_date):
       
       # SINGLES
       for player_result in team_result.player_results:
+        # if player_result.name == 'foxox':
+        #   print('Found foxox in match', match_result.mission, 'on date', match_result.date)
         if not player_result.name in player_to_match_count:
           player_to_match_count[player_result.name] = 0
         if not player_result.name in player_to_win_count:
@@ -255,11 +259,11 @@ for quarter in quarters:
   csv_header+=','+quarter_name
   (player_to_win_count, player_to_match_count, duo_to_win_count, duo_to_match_count) = compute_stats_for_time_period(quarter_start_date, quarter_end_date)
   for player in all_time_player_names:
-    # If there is csv row for the player yet, initialize it.
+    # If there is no csv row for the player yet, initialize it.
     if not player in csv_per_player:
-      csv_per_player[player] = []
+      csv_per_player[player] = list()
     # If the player played at least N matches in the quarter, add their win rate to the csv. Otherwise, add #N/A.
-    N = 3*4*4*0.5 # Participated in about 1/2 of PUGs in the quarter
+    N = 8
     if player in player_to_match_count and player_to_match_count[player] >= N:
       csv_per_player[player].append(player_to_win_count[player] / player_to_match_count[player])
     else:

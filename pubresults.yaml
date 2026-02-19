@@ -3911,16 +3911,186 @@
         - miss, 84
 
 
-# - date: 2025-
-#   mission: 
-#   results:
-#     storm:
-#       score: 
-#       players:
+- date: 2025-07-20
+  mission: twl magmatic ctf
+  results:
+    storm:
+      score: 317
+      players:
+        - aftermath, 523
+        - sliderzero, 442
+        - irvin, 239
+        - notpetedfs, 231
+        - actionswanson, 231
+        - anthem, 169
+        - friendo, 166
+        - geekofwires, 164
+        - elliebackwards, 134
+        - sweetcheeks, 130
+        - flakpyro, 129
+        - m80, 119
+        - aromatomato, 112
+        - nightwear, 87
+        - raynian, 65
+    inferno:
+      score: 16
+      players:
+        - vaxity, 459
+        - wingedwarrior, 36
+        - bendover, 305
+        - bizzy, 255
+        - sake, 195
+        - cooter, 181
+        - systeme, 136
+        - lsecannon28, 132
+        - history, 117
+        - lolcaps, 115
+        - earth, 113
+        - skyward, 99
+        - warchilde, 52
+        - 2short, 40
 
-#     inferno:
-#       score: 
-#       players:
+
+- date: 2025-07-20
+  mission: twl ocular ctf
+  results:
+    storm:
+      score: 113
+      players:
+        - halo2, 504
+        - darrellw, 375
+        - sake, 354
+        - andycap, 29
+        - actionswanson, 278
+        - m80, 268
+        - irvin, 239
+        - 2short, 226
+        - piata, 215
+        - lolcaps, 190
+        - alterego, 182
+        - doug, 177
+        - mp40, 170
+        - carpenter, 145
+        - aromatomato, 141
+        - sweetcheeks, 116
+        - flakpyro, 77
+        - earth, 40
+        - elliebackwards, 10
+    inferno:
+      score: 514
+      players:
+        - raynian, 634
+        - friendo, 479
+        - lilhexyboi, 411
+        - aftermath, 385
+        - wingedwarrior, 379
+        - bendover, 364
+        - vaxity, 364
+        - systeme, 311
+        - nutty, 267
+        - warchilde, 239
+        - geekofwires, 186
+        - miss, 184
+        - cooter, 175
+        - mlgru, 158
+        - pupecki, 125
+        - nightwear, 110
+        - spartanonyx, 80
+        - lsecannon28, 46
+
+
+- date: 2025-07-20
+  mission: twl katabatic ctf
+  results:
+    storm:
+      score: 422
+      players:
+        - history, 539
+        - aftermath, 471
+        - nutty, 444
+        - irvin, 399
+        - bendover, 379
+        - piata, 318
+        - nightwear, 276
+        - mp40, 275
+        - skyward, 272
+        - alterego, 259
+        - andycap, 250
+        - mlgru, 250
+        - cooter, 201
+        - forandtheweg, 179
+        - m80, 152
+        - systeme, 144
+        - geekofwires, 135
+        - elliebackwards, 118
+        - raynian, 100
+    inferno:
+      score: 322
+      players:
+        - sliderzero, 621
+        - vaxity, 384
+        - sake, 361
+        - halo2, 358
+        - actionswanson, 315
+        - lolcaps, 282
+        - wingedwarrior, 267
+        - flakpyro, 247
+        - friendo, 234
+        - spartanonyx, 206
+        - doug, 192
+        - aromatomato, 177
+        - warchilde, 171
+        - 2short, 164
+        - sweetcheeks, 103
+        - pupecki, 97
+        - carpenter, 79
+        - earth, 78
+        - lsecannon28, -9
+
+
+- date: 2025-07-20
+  mission: nightdance ctf
+  results:
+    storm:
+      score: 217
+      players:
+        - halo2, 818
+        - history, 573
+        - wingedwarrior, 552
+        - m80, 540
+        - sliderzero, 344
+        - nutty, 336
+        - hpi, 325
+        - alterego, 323
+        - piata, 310
+        - elliebackwards, 274
+        - geekofwires, 253
+        - mlgru, 132
+        - warchilde, 102
+        - systeme, 102
+        - doug, 96
+        - andycap, 89
+        - forandtheweg, 31
+    inferno:
+      score: 318
+      players:
+        - vaxity, 752
+        - sake, 496
+        - aftermath, 494
+        - raynian, 461
+        - bendover, 373
+        - nightwear, 370
+        - actionswanson, 320
+        - skyward, 286
+        - flakpyro, 221
+        - lolcaps, 185
+        - irvin, 183
+        - cooter, 167
+        - earth, 160
+        - aromatomato, 159
+        - lsecannon28, 109
+        - sweetcheeks, 75
+        - friendo, 20
 
 
 # - date: 2025-
