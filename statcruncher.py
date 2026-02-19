@@ -259,7 +259,7 @@ for quarter in quarters:
     if not player in csv_per_player:
       csv_per_player[player] = []
     # If the player played at least N matches in the quarter, add their win rate to the csv. Otherwise, add #N/A.
-    N = 6 # Participated in about 1/2 of PUGs in the quarter
+    N = 3*4*4*0.5 # Participated in about 1/2 of PUGs in the quarter
     if player in player_to_match_count and player_to_match_count[player] >= N:
       csv_per_player[player].append(player_to_win_count[player] / player_to_match_count[player])
     else:
