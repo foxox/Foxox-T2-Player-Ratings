@@ -48,10 +48,10 @@ class MatchResult:
     # Find the winning team.
     team_name_list = list(yaml_match_results.keys())
     assert(len(team_name_list) == 2) # There must be exactly two teams in a match result
-    winning_team_name = team_name_list[0] if yaml_match_results[team_name_list[0]]['score'] > yaml_match_results[team_name_list[1]]['score'] else team_name_list[1]
+    self.winning_team_name = team_name_list[0] if yaml_match_results[team_name_list[0]]['score'] > yaml_match_results[team_name_list[1]]['score'] else team_name_list[1]
 
     # Finish populating the team_results
-    self.team_results = [TeamResult(yaml_team_result, team_name == winning_team_name) for (team_name, yaml_team_result) in yaml_match_results.items()]
+    self.team_results = [TeamResult(yaml_team_result, team_name == self.winning_team_name) for (team_name, yaml_team_result) in yaml_match_results.items()]
 
   
   def __str__(self):
@@ -291,3 +291,31 @@ print('Highest confidence duos',[str(p[0])+' '+format(p[1],'.2f') for p in top_d
 
 print()
 
+
+
+
+# Now some map stats
+
+# loop over all matches
+map_to_match_count = dict()
+map_to_team_to_win_count = dict()
+for match_result in match_results:
+  
+  # Exclude LT matches
+  if 'LCTF' in match_result.mission:
+    continue
+
+  if not match_result.mission in map_to_match_count:
+    map_to_match_count[match_result.mission] = 0
+    map_to_team_to_win_count[match_result.mission] = {'inferno': 0, 'storm': 0}
+
+  if match_result.winning_team_name == "inferno":
+    map_to_team_to_win_count[match_result.mission]['inferno'] += 1
+  else:
+    map_to_team_to_win_count[match_result.mission]['storm'] += 1
+
+  map_to_match_count[match_result.mission] += 1
+
+map_win_rates = [(map_name, map_to_match_count[map_name], map_to_team_to_win_count[map_name]['inferno'] / map_to_match_count[map_name], map_to_team_to_win_count[map_name]['storm'] / map_to_match_count[map_name]) for map_name in map_to_match_count.keys() if map_to_match_count[map_name] > 3]
+
+print('Map win rates:\n'+'\n'.join([map_name+' was played '+str(match_count)+' times. Inferno won '+format(100.0*inferno_rate,'.1f')+'%, Storm won '+format(100.0*storm_rate,'.1f')+'% of the time.' for (map_name, match_count, inferno_rate, storm_rate) in map_win_rates]))
